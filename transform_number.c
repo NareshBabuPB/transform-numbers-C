@@ -8,10 +8,15 @@ const char *teens[] = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifte
 const char *tens[] = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 const char *places[] = {"","","Hundred","Thousand","","","Million","","","Billion","","","Trillion","","","Quadrillion","","","Quintillion"};
 
-void transformNumber(int num, int place, char* numInWords);
+void transformNumber(long num, int place, char* numInWords);
 void appendWithSpace(char* srcString, const char* suffix);
 
-void transform(int num) {
+void transform(long num) {
+    if(num == 0) {
+        printf("Zero");
+        return;
+    }
+
     char numInWords[NUM_IN_WORDS_SIZE];
     strcpy(numInWords, "");
 
@@ -19,12 +24,12 @@ void transform(int num) {
         strcat(numInWords, "Negative ");
     }
 
-    transformNumber(abs(num), 0, numInWords);
+    transformNumber(labs(num), 0, numInWords);
 
     printf("%s\n", numInWords);    
 }
 
-void transformNumber(int num, int place, char* numInWords) {
+void transformNumber(long num, int place, char* numInWords) {
 
     int remainingValue = 0;
     if(num >= 1000) {
