@@ -2,31 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define NUM_IN_WORDS_SIZE 1000
+#define NUM_IN_WORDS_SIZE 1500
 const char *ones[] = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 const char *teens[] = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
 const char *tens[] = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 const char *places[] = {"","","Hundred","Thousand","","","Million","","","Billion","","","Trillion","","","Quadrillion","","","Quintillion"};
 
-void transform(int num);
 void transformNumber(int num, int place, char* numInWords);
-void appendWithSpace(char* srcString, char* suffix);
-
-int main() {
-    int num;
-    while(num != 0) {
-        printf("Enter a number: ");
-        scanf("%d", &num);
-
-        if (num == 0) {
-            printf("Zero\n");
-            return 0;
-        }
-
-        transform(num);
-    }
-    
-}
+void appendWithSpace(char* srcString, const char* suffix);
 
 void transform(int num) {
     char numInWords[NUM_IN_WORDS_SIZE];
@@ -72,9 +55,9 @@ void transformNumber(int num, int place, char* numInWords) {
     appendWithSpace(numInWords, places[place]);
 }
 
-void appendWithSpace(char *srcString, char* suffix)
+void appendWithSpace(char *srcString, const char* suffix)
 {
-    if(suffix == ""){
+    if(strcmp(suffix, "") == 0){
         return;
     }
 
