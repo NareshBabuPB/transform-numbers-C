@@ -13,7 +13,7 @@ void appendWithSpace(char* srcString, const char* suffix);
 
 void transform(long num) {
     if(num == 0) {
-        printf("Zero");
+        printf("Zero\n");
         return;
     }
 

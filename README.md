@@ -12,3 +12,6 @@ make all
 
 #### Using Docker container:
 ```docker run -it --rm --security-opt seccomp=unconfined -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:12.4.0 make run```
+
+### Run tests:
+```make all test```
