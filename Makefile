@@ -12,10 +12,10 @@ TRANSFORM_NUMBER = transform_number.c
 # Object files
 OBJS = main.o transform_number.o
 
-# Default target (uses version 1)
+# Default target
 all: clean build
 
-# Build using version 1
+# Build
 build: $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
@@ -26,3 +26,7 @@ build: $(OBJS)
 # Clean build files
 clean:
 	rm -f *.o $(TARGET)
+
+# Run the app
+run: all
+	./$(TARGET)

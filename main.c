@@ -8,6 +8,7 @@ int main() {
     long num;
     char buffer[100];
     char *endptr;
+    printf("Number to word transformer. Enter 0 to exit.");
 
     do {
         printf("Enter a number: ");
